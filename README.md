@@ -1,8 +1,21 @@
 # PX4-Toolbox-SITL-SFunction
 
-(under development - examples coming soon)
+(very experimental)
 
-This repository contains the S-Function CPP and header files for interfacing simulink with PX4 SITL. The S-Function takes in a few parameters from the simulink model and packages them into a MAVlink message that is sent over TCP port 4560 (see [PX4 simulation website](https://docs.px4.io/main/en/simulation/#default-px4-mavlink-udp-ports)) and allows for custom dynamics to be tested and integrated with other frameworks such as ROS.
+This repository contains the S-Function CPP and header files for interfacing simulink with PX4 SITL. The S-Function takes in a few parameters from the Simulink model and packages them into a MAVlink message that is sent over TCP port 4560 (see [PX4 simulation website](https://docs.px4.io/main/en/simulation/#default-px4-mavlink-udp-ports)) and allows for custom dynamics to be tested and integrated with other frameworks such as ROS.
+
+## Installation
+1. Install the PX4 Simulink SIL Toolbox.mltbx file.
+2. Find the blocks in the block set library
+3. Profit
+
+## Source Code Installation
+1. Clone this repo into the root folder of your dynamics model.
+2. git submodule init
+3. git submodule update --recursive --remote
+4. Build the cpp file with the build.m file and replace your matlab install location.
+5. Connect the inputs from your model to the S-Function
+6. Connect the output from the S-Function to a rate controller, selector block (# of motors) and a saturation from 0-1 (will add as block in the future).
 
 ## Required from Simulink
 
@@ -14,15 +27,6 @@ This repository contains the S-Function CPP and header files for interfacing sim
 * Velocity (x, y, z seen by gps)
 * Course (direction of travel seen by gps)
 * time (using the clock converted to usecs)
-
-## Installation
-
-1. Clone this repo into the root folder of your dynamics model.
-2. git submodule init
-3. git submodule update --recursive --remote
-4. Build the cpp file with the build.m file and replace your matlab install location.
-5. Connect the inputs from your model to the S-Function
-6. Connect the output from the S-Function to a rate controller, selector block (# of motors) and a saturation from 0-1 (will add as block in the future).
 
 ## Running the simulation
 
