@@ -1,14 +1,14 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
   <configuration file="C:\Users\tommy\Documents\Projects\Engineering\PX4-Simulink-SIL_HIL-Toolbox\publish.prj" location="C:\Users\tommy\Documents\Projects\Engineering\PX4-Simulink-SIL_HIL-Toolbox" name="publish" target="target.toolbox" target-name="Package Toolbox">
-    <param.appname>PX4 Simulink SIL Toolbox</param.appname>
-    <param.authnamewatermark>Tommy Zhang</param.authnamewatermark>
+    <param.appname>PX4 SITL Connection</param.appname>
+    <param.authnamewatermark>Ziyang (Tommy) Zhang</param.authnamewatermark>
     <param.email>tzy.zhang@mail.utoronto.ca</param.email>
     <param.company />
     <param.summary />
     <param.description />
-    <param.screenshot>${PROJECT_ROOT}\publish\toolboximage.png</param.screenshot>
-    <param.version>1.0.0.1</param.version>
-    <param.output>${PROJECT_ROOT}\PX4 Simulink SIL Toolbox.mltbx</param.output>
+    <param.screenshot />
+    <param.version>1.0.1</param.version>
+    <param.output>${PROJECT_ROOT}\PX4 SITL Connection.mltbx</param.output>
     <param.products.name>
       <item>MATLAB</item>
     </param.products.name>
@@ -19,7 +19,7 @@
       <item>24.1</item>
     </param.products.version>
     <param.platforms />
-    <param.guid>e005aefa-13f6-4686-a600-7761a853a4e9</param.guid>
+    <param.guid>8f61f8d1-072d-4e96-af55-9eaf4a507f9d</param.guid>
     <param.exclude.filters />
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
     <param.examples />
@@ -34,8 +34,8 @@
     <param.required.addons />
     <param.matlab.project.id />
     <param.matlab.project.name />
-    <param.release.start>R2020b</param.release.start>
-    <param.release.end>latest</param.release.end>
+    <param.release.start />
+    <param.release.end />
     <param.release.current.only>false</param.release.current.only>
     <param.compatiblity.windows>true</param.compatiblity.windows>
     <param.compatiblity.macos>true</param.compatiblity.macos>
@@ -51,6 +51,7 @@
       <param.company />
       <param.summary />
       <param.description />
+      <param.screenshot />
       <param.output />
       <param.platforms />
       <param.exclude.filters />
@@ -66,6 +67,8 @@
       <param.required.addons />
       <param.matlab.project.id />
       <param.matlab.project.name />
+      <param.release.start />
+      <param.release.end />
       <param.release.current.only />
       <param.compatiblity.windows />
       <param.compatiblity.macos />
@@ -91,13 +94,12 @@
       <file>${PROJECT_ROOT}\publish\pysrc</file>
       <file>${PROJECT_ROOT}\publish\script</file>
       <file>${PROJECT_ROOT}\publish\sysobj</file>
-      <file>${PROJECT_ROOT}\publish\toolboximage.png</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}" name="PX4 Simulink SIL Toolbox.mltbx" optional="false">C:\Users\tommy\Documents\Projects\Engineering\PX4-Simulink-SIL_HIL-Toolbox\PX4 Simulink SIL Toolbox.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="PX4 SITL Connection.mltbx" optional="false">C:\Users\tommy\Documents\Projects\Engineering\PX4-Simulink-SIL_HIL-Toolbox\PX4 SITL Connection.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
