@@ -18,21 +18,18 @@ This repository contains the S-Function CPP and header files for interfacing sim
 6. Connect the output from the S-Function to a rate controller, selector block (# of motors) and a saturation from 0-1 (will add as block in the future).
 
 ## Main Blocks:
-* IMUPackaging: Inputs: Acc, Gyro, Mag, Baro
+* IMUPackaging:
+  * IMU (acc_x, acc_y, acc_z) [m/s^2]
+  * Gyro (gyro_x, gyro_y, gyro_z)
+  * Mag (mag_x, mag_y, mag_z) [uT]
+  * Pressure (from barometer sim) [Pa]
 * GPSPackaging: Inputs: LLA, Velocity, Ground Speed, Course
+  * LLA (lat, long, alt from gps sim)
+  * Velocity (x, y, z seen by gps)
+  * Course (direction of travel seen by gps)
+  * time (using the clock converted to usecs)
 * PX4SITLConnection: Combines IMU bytes and GPS bytes and returns Actuator bytes from the px4 controller (packages everything into the sim and receives an output)
-
-### Detailed Inputs and Outputs
-* IMU (acc_x, acc_y, acc_z) [m/s^2]
-* Gyro (gyro_x, gyro_y, gyro_z)
-* Mag (mag_x, mag_y, mag_z) [uT]
-* Pressure (from barometer sim) [Pa]
-* LLA (lat, long, alt from gps sim)
-* Velocity (x, y, z seen by gps)
-* Course (direction of travel seen by gps)
-* time (using the clock converted to usecs)
-
-* Actuator Bytes: Provides the control bytes returned by the PX4 controller, to control the motors in Simulink. 16-bit output, where the first four bits represent the four actuators.
+  * Actuator Bytes: Provides the control bytes returned by the PX4 controller, to control the motors in Simulink. 16-bit output, where the first four bits represent the four actuators.
 
 ## Example setup:
 ![image](https://github.com/user-attachments/assets/91dbbe43-3113-4e8a-b1fc-8d5ed959b3ed)
@@ -40,7 +37,7 @@ This repository contains the S-Function CPP and header files for interfacing sim
 
 ## Running the simulation
 
-1. Run the simulink model.
+1. Run the Simulink model.
 2. In your WSL environment run: export PX4_SIM_HOSTNAME="windows ip address"
 3. In your WSL environment run: make px4_sitl none_iris
 4. Open QGC and connect to port 18570  
