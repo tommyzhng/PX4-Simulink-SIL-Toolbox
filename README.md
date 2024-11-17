@@ -17,8 +17,12 @@ This repository contains the S-Function CPP and header files for interfacing sim
 5. Connect the inputs from your model to the S-Function
 6. Connect the output from the S-Function to a rate controller, selector block (# of motors) and a saturation from 0-1 (will add as block in the future).
 
-## Required from Simulink
+## Main Blocks:
+IMUPackaging: Inputs: Acc, Gyro, Mag, Baro
+GPSPackaging: Inputs: LLA, Velocity, Ground Speed, Course
+PX4SITLConnection: Combines IMU bytes and GPS bytes and returns Actuator bytes from the px4 controller (packages everything into the sim and receives an output)
 
+## Required from Simulink
 * IMU (acc_x, acc_y, acc_z) [m/s^2]
 * Gyro (gyro_x, gyro_y, gyro_z)
 * Mag (mag_x, mag_y, mag_z) [uT]
@@ -27,6 +31,10 @@ This repository contains the S-Function CPP and header files for interfacing sim
 * Velocity (x, y, z seen by gps)
 * Course (direction of travel seen by gps)
 * time (using the clock converted to usecs)
+
+## Example setup:
+![image](https://github.com/user-attachments/assets/91dbbe43-3113-4e8a-b1fc-8d5ed959b3ed)
+
 
 ## Running the simulation
 
