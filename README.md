@@ -1,6 +1,6 @@
 # PX4-Toolbox-SITL-SFunction
 
-(very experimental)
+(very experimental, only works with quadcopters right now)
 
 This repository contains the S-Function CPP and header files for interfacing simulink with PX4 SITL. The S-Function takes in a few parameters from the Simulink model and packages them into a MAVlink message that is sent over TCP port 4560 (see [PX4 simulation website](https://docs.px4.io/main/en/simulation/#default-px4-mavlink-udp-ports)) and allows for custom dynamics to be tested and integrated with other frameworks such as ROS.
 
@@ -18,11 +18,11 @@ This repository contains the S-Function CPP and header files for interfacing sim
 6. Connect the output from the S-Function to a rate controller, selector block (# of motors) and a saturation from 0-1 (will add as block in the future).
 
 ## Main Blocks:
-IMUPackaging: Inputs: Acc, Gyro, Mag, Baro
-GPSPackaging: Inputs: LLA, Velocity, Ground Speed, Course
-PX4SITLConnection: Combines IMU bytes and GPS bytes and returns Actuator bytes from the px4 controller (packages everything into the sim and receives an output)
+* IMUPackaging: Inputs: Acc, Gyro, Mag, Baro
+* GPSPackaging: Inputs: LLA, Velocity, Ground Speed, Course
+* PX4SITLConnection: Combines IMU bytes and GPS bytes and returns Actuator bytes from the px4 controller (packages everything into the sim and receives an output)
 
-## Required from Simulink
+### Detailed Inputs and Outputs
 * IMU (acc_x, acc_y, acc_z) [m/s^2]
 * Gyro (gyro_x, gyro_y, gyro_z)
 * Mag (mag_x, mag_y, mag_z) [uT]
@@ -31,6 +31,8 @@ PX4SITLConnection: Combines IMU bytes and GPS bytes and returns Actuator bytes f
 * Velocity (x, y, z seen by gps)
 * Course (direction of travel seen by gps)
 * time (using the clock converted to usecs)
+
+* Actuator Bytes: Provides the control bytes returned by the PX4 controller, to control the motors in Simulink. 16-bit output, where the first four bits represent the four actuators.
 
 ## Example setup:
 ![image](https://github.com/user-attachments/assets/91dbbe43-3113-4e8a-b1fc-8d5ed959b3ed)
